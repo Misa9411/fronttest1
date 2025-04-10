@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seleccionar Canal - Lista PCR</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="IMG/favicon-96x96.png" sizes="96x96"/>
+  <link rel="shortcut icon" href="IMG/favicon.ico"/>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="index.html">
+      <img src="IMG/logo corven neumaticos.png" alt="Logo Corven" height="30" class="d-inline-block align-middle">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">☰</span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <!-- Otros enlaces si es necesario -->
+      </ul>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <div class="container mt-5 pt-5">
+    <h1 class="text-center mb-4">Seleccione el Canal para la Lista PCR</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <select class="form-control" id="canalSelect">
+            <option value="">Seleccione...</option>
+            <option value="lista_pcr_retail.html">Retail</option>
+            <option value="lista_pcr_empleados.html">Empleados y Referidos</option>
+            <option value="lista_pcr_toyota.html">Toyota</option>
+            <option value="lista_pcr_ecommerce.html">E-Commerce</option>
+            <option value="lista_pcr_autopartes.html">Autopartes</option>
+            <option value="lista_pcr_distribuidor.html">Distribuidor</option>
+          </select>          
+      </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+      <button id="goButton" class="btn btn-primary">Ir a la Lista</button>
+    </div>
+    <div class="row justify-content-center mt-3">
+      <button class="btn btn-secondary" onclick="window.location.href='index.html'">Volver al inicio</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-custom d-flex justify-content-between align-items-center px-4 py-3 mt-5">
+    <p class="mb-0 text-secondary">&copy; 2025 Corven Neumáticos. Todos los derechos reservados.</p>
+    <img src="IMG/logos_grupo-corven_para_fondo_blanco.png" alt="Logo Corven" class="footer-logo">
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Al hacer clic en el botón, se obtiene el valor seleccionado y se redirige a la página correspondiente
+    document.getElementById("goButton").addEventListener("click", function() {
+      var select = document.getElementById("canalSelect");
+      var url = select.value;
+      if (url) {
+        window.location.href = url;
+      } else {
+        alert("Por favor, seleccione un canal para continuar.");
+      }
+    });
+    
+    // Opcional: redirección automática al cambiar la opción
+    // document.getElementById("canalSelect").addEventListener("change", function() {
+    //   var url = this.value;
+    //   if (url) window.location.href = url;
+    // });
+  </script>
+</body>
+</html>
